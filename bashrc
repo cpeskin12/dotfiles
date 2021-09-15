@@ -52,9 +52,13 @@ PROMPT_DIRTRIM=2
 
 ### ----- aliases ------ ###
 ### ----------------------------- ###
+# bai/sh vpn
 alias vpn-connect='openvpn3 session-start --config /home/con/bai/vpn/client.ovpn'
 alias vpn-kill='openvpn3 session-manage --disconnect --config /home/con/bai/vpn/client.ovpn'
 alias vpn-status='openvpn3 sessions-list'
+# ctags in git folder
 alias dotags='ctags -R --tag-relative -f ./.git/tags .'
+# thanks atharva :)
+alias gl='git log --pretty=oneline --abbrev-commit'
 ### ----------------------------- ###
 

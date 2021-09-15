@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+TO_INSTALL="bashrc vimrc tmux.conf"
+
+for FILE in $TO_INSTALL
+do
+	echo "Replacing ~/.$FILE with symlink to dotfiles/$FILE"
+	rm -i ~/.$FILE
+	ln -sf `realpath $FILE` ~/.$FILE
+done

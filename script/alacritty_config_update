@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e 
+
+# alacritty doesn't like it's config file to be symlinked, copy instead
+
+CONFIG_FILE_DST=~/.config/alacritty/alacritty.yml
+echo "Replacing $CONFIG_FILE_DST with alacritty.yml" 
+cp alacritty.yml $CONFIG_FILE_DST 

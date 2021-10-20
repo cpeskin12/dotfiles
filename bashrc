@@ -61,6 +61,7 @@ alias dotags='ctags -R --tag-relative -f ./.git/tags .'
 # thanks atharva :)
 alias gl='git log --pretty=oneline --abbrev-commit'
 alias gs='git status -s'
-alias open='nautilus 2>&1 /dev/null &'
+# open the current directory in nautilus:
+alias open='nautilus . &> /dev/null &'
 ### ----------------------------- ###
 

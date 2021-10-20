@@ -60,5 +60,7 @@ alias vpn-status='openvpn3 sessions-list'
 alias dotags='ctags -R --tag-relative -f ./.git/tags .'
 # thanks atharva :)
 alias gl='git log --pretty=oneline --abbrev-commit'
+alias gs='git status -s'
+alias open='nautilus 2>&1 /dev/null &'
 ### ----------------------------- ###
 

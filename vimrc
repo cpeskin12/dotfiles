@@ -21,25 +21,27 @@ if has("autocmd")
 endif
 
 
-" ---------- VUNDLE ---------- "
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-call vundle#end()
-filetype plugin indent on
-" can't live without it
-Plugin 'tomtom/tcomment_vim'
-" bloated autocomplete
-Plugin 'valloric/youcompleteme'
-" fugitive - git tools in vim
-Plugin 'tpope/vim-fugitive'
+" ---------- plug.vim ---------- "
+" install if it doesn't exist
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
+call plug#begin('~/.vim/plugged')
+
+" can't live without it
+Plug 'tomtom/tcomment_vim'
+" fugitive - git tools in vim
+Plug 'tpope/vim-fugitive'
+" trying coc.vim instead of ycm
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
 
 " ---------- YANK TO CLIPBOARD SUPPORT ---------- "
 set clipboard=unnamedplus
-
 
 " ---------- PERSISITENT UNDO ------------ "
 if has('persistent_undo')      "check if your vim version supports it
